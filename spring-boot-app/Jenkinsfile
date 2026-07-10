@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage(build) {
         steps {
-          sh 'cd spring-boot-app && pwd'
+          sh 'pwd && cd spring-boot-app && pwd'
         }
 
 
