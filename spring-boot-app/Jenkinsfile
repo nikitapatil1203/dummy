@@ -1,14 +1,20 @@
 pipeline {
-  agent any
-  stages {
-    stage(clone){
-      steps {
-        echo "testing this pipeline"
+  agent any {
+    stages {
+      stage(build) {
+        steps {
+          sh 'echo 'nikita''
+        }
+
+
+
+
+
+
+        
       }
     }
   }
-
-
 
 
   
