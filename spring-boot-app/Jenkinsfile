@@ -7,6 +7,7 @@ pipeline {
           sh 'java -version'
           sh 'cd spring-boot-app && mvn clean compile'
         }
+      }
       stage('execute unit test cases') {
         steps {
           sh 'cd spring-boot-app && mvn clean test'
@@ -25,4 +26,4 @@ pipeline {
 
 
   
-}
+
