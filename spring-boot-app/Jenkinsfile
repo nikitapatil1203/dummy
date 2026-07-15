@@ -1,16 +1,14 @@
 pipeline {
   agent any 
     stages {
-      stage('build') {
+      stage(checkout) {
         steps {
-          sh 'mvn -version'
-          sh 'java -version'
-          sh 'cd spring-boot-app && mvn clean compile'
+          sh 'echo passed'
         }
       }
-      stage('execute unit test cases') {
+      stage('build and test') {
         steps {
-          sh 'cd spring-boot-app && mvn clean test'
+          sh 'cd spring-boot-app && mvn clean package'
         }
       }
 
