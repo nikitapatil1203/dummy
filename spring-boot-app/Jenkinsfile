@@ -4,7 +4,7 @@ pipeline {
       stage('Checkout') {
         steps {
           sh 'echo passed'
-          sh 'git branch: 'main', url: 'https://github.com/nikitapatil1203/CI-CD''
+         # sh 'git branch: 'main', url: 'https://github.com/nikitapatil1203/CI-CD''
         }
       }
       stage('Build and Test') {
