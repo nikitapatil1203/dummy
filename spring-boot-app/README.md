@@ -1,5 +1,4 @@
 
-## Next Steps
 
 ### Configure a Sonar Server locally
 
