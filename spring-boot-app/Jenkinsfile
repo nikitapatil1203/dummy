@@ -1,14 +1,19 @@
 pipeline {
   agent any 
     stages {
-      stage(checkout) {
+      stage('Checkout') {
         steps {
           sh 'echo passed'
         }
       }
-      stage('build and test') {
+      stage('Build and Test') {
         steps {
           sh 'cd spring-boot-app && mvn clean package'
+        }
+      }
+      stage('Static Code Analysis') {
+        steps {
+          
         }
       }
 
