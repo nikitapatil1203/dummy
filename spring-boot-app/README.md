@@ -1,5 +1,9 @@
+
+## Next Steps
+
 ### Configure a Sonar Server locally
 
+```
 System Requirements
 Java 17+ (Oracle JDK, OpenJDK, or AdoptOpenJDK)
 Hardware Recommendations:
@@ -13,3 +17,4 @@ chown -R sonarqube:sonarqube /opt/sonarqube
 chmod -R 775 /opt/sonarqube
 cd /opt/sonarqube/bin/linux-x86-64
 ./sonar.sh start
+```
