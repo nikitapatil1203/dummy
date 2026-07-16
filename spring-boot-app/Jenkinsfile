@@ -30,7 +30,7 @@ pipeline {
           sh 'docker images'
         }
       }
-      stage('Trivy Docker image Scan') {
+      stage('Trivy Docker Image Scan') {
          steps {
           sh '''
             trivy image \
@@ -42,7 +42,13 @@ pipeline {
             ${DOCKER_IMAGE}
             '''
             }
+      }
+      stage('Push Docker Image') {
+        steps {
+        
+          
         }
+      }
 
 
 
