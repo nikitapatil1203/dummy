@@ -31,9 +31,19 @@ pipeline {
           sh 'docker images'
         }
       }
-      stage('Scan Docker image') {
+      stage('Trivy Docker image Scan') {
         steps {
-          
+          sh "mkdir -p ${TRIVY_CACHE_DIR} reports"
+
+                dir("${APP_DIR}") {
+
+                    sh """
+                    trivy image \
+                      --cache-dir ${TRIVY_CACHE_DIR} \
+                      --format json \
+                      --output ${WORKSPACE}/reports/trivy-image.json \
+                      ${IMAGE_NAME}
+                    """
         }
       }
 
