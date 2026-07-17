@@ -57,7 +57,7 @@ pipeline {
       }
       stage('Update Deployment File') {
         steps {
-          
+          nikita/ci-cd-repo
         }
       }
 
