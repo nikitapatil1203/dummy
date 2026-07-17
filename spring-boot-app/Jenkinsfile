@@ -4,6 +4,8 @@ pipeline {
         DOCKER_IMAGE = "nikitapatil1203/ci-cd:${BUILD_NUMBER}"
         SONAR_URL = "http://**.***.**.***:9000/"
         TRIVY_CACHE_DIR = "${WORKSPACE}/.trivy_cache"
+        AWS_REGION = "us-east-1"
+        AWS_ACCOUNT_ID = credentials('aws-account-id')
         }
     stages {
       stage('Checkout') {
@@ -43,9 +45,10 @@ pipeline {
             '''
             }
       }
-      stage('Push Docker Image') {
+      stage('Push Docker Image To ECR') {
         steps {
-          sh 'aws s3 ls'
+          # Refer to AWS ECR for the commands
+      sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${aws-account-id}.dkr.ecr.${AWS_REGION}.amazonaws.com && docker push ${DOCKER_IMAGE}'
           
         }
       }
