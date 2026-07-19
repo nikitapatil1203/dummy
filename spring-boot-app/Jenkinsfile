@@ -57,7 +57,7 @@ pipeline {
       }
       stage('Update Deployment File') {
         steps {
-          
+          sh 'echo passed'
         }
       }
 
