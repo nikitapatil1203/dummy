@@ -62,7 +62,7 @@ pipeline {
             sh '''
             docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/nikita/ci-cd-repo:${BUILD_NUMBER}
             docker tag  ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/nikita/ci-cd-repo:${BUILD_NUMBER} ${DOCKER_IMAGE}
-            sed -i "s|image: nikitapatil1203/ci-cd:.*|image: nikitapatil1203/ci-cd:${BUILD_NUMBER}|g" deployment.yml
+            sed -i.bak "s|image: nikitapatil1203/ci-cd:.*|image: nikitapatil1203/ci-cd:${BUILD_NUMBER}|g" deployment.yml
             '''
         }
       }
