@@ -60,7 +60,9 @@ pipeline {
       stage('Update Deployment File') {
         steps {
             sh '''
-            sed -i "s|image: nikitapatil/python-web-app:.*|image: nikitapatil/python-web-app:${BUILD_NUMBER}|g" deployment.yaml
+            docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/nikita/ci-cd-repo:${BUILD_NUMBER}
+            docker tag  ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/nikita/ci-cd-repo:${BUILD_NUMBER} ${DOCKER_IMAGE}
+            sed -i "s|image: nikitapatil1203/ci-cd:.*|image: nikitapatil1203/ci-cd:${BUILD_NUMBER}|g" deployment.yaml
             '''
         }
       }
