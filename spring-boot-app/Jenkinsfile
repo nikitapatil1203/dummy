@@ -69,12 +69,8 @@ pipeline {
             git config user.name "Nikita Patil"
 
             cd spring-boot-app-manifests
-            pwd
             sed -i.bak "s|image: nikitapatil1203/ci-cd:.*|image: nikitapatil1203/ci-cd:${BUILD_NUMBER}|g" deployment.yml
-            docker images
-            pwd
             git remote -v
-            pwd
             git add deployment.yml
             git commit -m "updated deployment.yml file"
             git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
